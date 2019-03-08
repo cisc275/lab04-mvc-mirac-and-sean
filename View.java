@@ -36,7 +36,7 @@ public class View extends JPanel {
 	}
 
 	public void paint(Graphics g) {
-		g.drawImage(pics[dir][picNum], xloc += (xIncr * xDir), yloc += (yIncr * yDir), Color.gray, this);
+		g.drawImage(pics[dir][picNum], xloc, yloc, Color.gray, this);
 	}
 
 	public View() {

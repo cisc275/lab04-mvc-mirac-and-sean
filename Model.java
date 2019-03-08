@@ -12,25 +12,21 @@
 public class Model {
 
   //Location and direction
-  private int xLoc;
-  private int yLoc;
+  private int xloc;
+  private int yloc;
   private Direction direction;
+  private int xDir;
+  private int yDir;
+
+  //Pixels moved per update
+  private final int xIncr = 8;
+  private final int yIncr = 2;
 
   //Display properties
   private int viewWidth;
   private int viewHeight;
   private int imgWidth;
   private int imgHeight;
-
-  int dir;
-  final static int north = 0;
-  final static int east = 1;
-  final static int south = 2;
-  final static int west = 3;
-  final static int northeast = 4;
-  final static int northwest = 5;
-  final static int southeast = 6;
-  final static int southwest = 7;
 
   public Model(int viewWidth, int viewHeight, int imageWidth, int imageHeight) {
     this.viewWidth = viewWidth;
@@ -40,10 +36,11 @@ public class Model {
   }
 
   public void updateLocationAndDirection() {
-	  if (xloc <= 0) {
+	   if(xloc <= 0) {
       	if(yDir>0) {
       		direction = Direction.SOUTHEAST;
-      	}else {
+      	}
+        else {
       		direction = Direction.NORTHEAST;
       	}
           xDir = 1;
@@ -51,44 +48,43 @@ public class Model {
       else if (xloc + imgWidth >= viewWidth) {
       	if(yDir > 0) {
       		direction = Direction.SOUTHWEST;
-			}
-			else {
-				direction = Direction.NORTHWEST;
-			}
-          xDir = -1;
-
+        }
+        else {
+          direction = Direction.NORTHWEST;
+        }
+        xDir = -1;
       }
 
       if (yloc <= 0) {
       	if(xDir > 0) {
       		direction = Direction.SOUTHEAST;
-			}
-			else {
-				direction = Direction.SOUTHWEST;
-
-			}
-          yDir = 1;
+        }
+        else {
+          direction = Direction.SOUTHWEST;
+        }
+        yDir = 1;
       }
-
       else if (yloc + imgHeight >= viewHeight) {
       	if(xDir > 0) {
-      		direction = Direction.NORTHEAST;
-			}
-			else {
-				direction = Direction.NORTHWEST;
-			}
-          yDir = -1;
+      		  direction = Direction.NORTHEAST;
+			  }
+        else {
+          direction = Direction.NORTHWEST;
+			  }
+        yDir = -1;
+      }
 
-  }
-}
+      xloc += xIncr * xDir;
+      yloc += yIncr * yDir;
+    }
 
 
   public int getX() {
-    return xLoc;
+    return xloc;
   }
 
   public int getY() {
-    return yLoc;
+    return yloc;
   }
 
   public Direction getDirect() {
