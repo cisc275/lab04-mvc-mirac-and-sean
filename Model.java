@@ -80,6 +80,29 @@ public class Model {
           yDir = -1;
 
   }
+  }
+      public Animation(){
+      	BufferedImage[] img = new BufferedImage[totalNumDir];
+      	
+      	pics = new BufferedImage[totalNumDir][10];
+      	
+      	String[] files = {"images/orc/orc_forward_north.png", "images/orc/orc_forward_east.png", 
+      			"images/orc/orc_forward_south.png", "images/orc/orc_forward_west.png", 
+      			"images/orc/orc_forward_northeast.png","images/orc/orc_forward_northwest.png",
+      			"images/orc/orc_forward_southeast.png","images/orc/orc_forward_southwest.png"};
+  		
+  		for(int i = 0; i < totalNumDir; i++) { 
+  			img[i] = createImage(files[i]);
+  		}
+      	
+  		
+  		for(int i = 0; i < totalNumDir; i++) { //number of pictures in array
+  			for(int j = 0; j < frameCount; j++) { //number of subimages in each picture
+  	    		pics[i][j] = img[i].getSubimage(imgWidth*j, 0, imgWidth, imgHeight);
+  			}
+      	// TODO: Change this constructor so that at least eight orc animation pngs are loaded
+  		}  
+      }
 
 
   public int getX() {

@@ -21,8 +21,10 @@ public class View extends JPanel {
 	private final int height = 300;
 	private final int imgWidth = 165;
 	private final int imgHeight = 165;
-	private int = xloc;
-	private int = yloc;
+	private final int totalNumDir = 8;
+	BufferedImage[][] pics;
+	private int xloc;
+	private int yloc;
 	private Direction direction;
 	int picNum = 0;
 	
@@ -65,6 +67,28 @@ public class View extends JPanel {
 		direction = modelDir;
 
 	}
+	
+	public loadImages()(){
+    	BufferedImage[] img = new BufferedImage[totalNumDir];
+    	
+    	pics = new BufferedImage[totalNumDir][10];
+    	
+    	String[] files = {"images/orc/orc_forward_north.png", "images/orc/orc_forward_east.png", 
+    			"images/orc/orc_forward_south.png", "images/orc/orc_forward_west.png", 
+    			"images/orc/orc_forward_northeast.png","images/orc/orc_forward_northwest.png",
+    			"images/orc/orc_forward_southeast.png","images/orc/orc_forward_southwest.png"};
+		
+		for(int i = 0; i < totalNumDir; i++) { 
+			img[i] = createImage(files[i]);
+		}
+    	
+		
+		for(int i = 0; i < totalNumDir; i++) { //number of pictures in array
+			for(int j = 0; j < frameCount; j++) { //number of subimages in each picture
+	    		pics[i][j] = img[i].getSubimage(imgWidth*j, 0, imgWidth, imgHeight);
+			}
+		}  
+    }
 
 	public int getWidth() {
 		return width;
