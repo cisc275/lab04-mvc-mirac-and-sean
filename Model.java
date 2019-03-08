@@ -3,7 +3,7 @@
  * Does not contain anything about images or graphics, must ask view for that
  *
  * has methods to
- *  detect collision with boundaries
+ * detect collision with boundaries
  * decide next direction
  * provide direction
  * provide location
@@ -30,7 +30,12 @@ public class Model {
   }
 
   public void updateLocationAndDirection() {
-    
+
+  }
+
+  private boolean detectCollision() {
+    //return whether or not we are colliding with the view boundaries
+    return false;
   }
 
   public int getX() {

@@ -28,11 +28,18 @@ public class View extends JPanel {
     frame.setBackground(Color.gray);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(width, height);
+
+    loadImages();
+
     frame.setVisible(true);
   }
 
-  public void update(int modelX, int modelY, Direction modelDir) {
+  private void loadImages() {
+    //load the images and store them in a 2d-array
+  }
 
+  public void update(int modelX, int modelY, Direction modelDir) {
+    
   }
 
   public int getWidth() {
