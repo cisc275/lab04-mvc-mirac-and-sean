@@ -33,7 +33,8 @@ public class View extends JPanel {
 
 
 	public static void main(String[] args) {
-		new Controller();
+		Controller controller = new Controller();
+    controller.start();
 	}
 
 	public void paint(Graphics g) {
@@ -60,6 +61,7 @@ public class View extends JPanel {
 			bufferedImage = ImageIO.read(new File(imageStr));
 			return bufferedImage;
 		} catch (IOException e) {
+      System.out.println("it broke\nit broke\nit broke\nit broke\nit broke\nit broke\nit broke\nit broke\nit broke");
 			e.printStackTrace();
 		}
 
