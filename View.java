@@ -18,6 +18,10 @@ public class View extends JPanel {
   private final int imgWidth = 165;
   private final int imgHeight = 165;
 
+  public static void main(String[] args) {
+    new Controller();
+  }
+
   public View() {
     JFrame frame = new JFrame();
     frame.getContentPane().add(this);
@@ -27,7 +31,7 @@ public class View extends JPanel {
     frame.setVisible(true);
   }
 
-  public void update(int modelX, int modelY, int modelDir) {
+  public void update(int modelX, int modelY, Direction modelDir) {
 
   }
 
