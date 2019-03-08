@@ -10,5 +10,38 @@
  **/
 
 public class Model {
-  
+
+  //Location and direction
+  private int xLoc;
+  private int yLoc;
+  private Direction direction;
+
+  //Display properties
+  private int viewWidth;
+  private int viewHeight;
+  private int imgWidth;
+  private int imgHeight;
+
+  public Model(int viewWidth, int viewHeight, int imageWidth, int imageHeight) {
+    this.viewWidth = viewWidth;
+    this.viewHeight = viewHeight;
+    imgWidth = imageWidth;
+    imgHeight = imageHeight;
+  }
+
+  public void updateLocationAndDirection() {
+    
+  }
+
+  public int getX() {
+    return xLoc;
+  }
+
+  public int getY() {
+    return yLoc;
+  }
+
+  public Direction getDirect() {
+    return direction;
+  }
 }
