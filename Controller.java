@@ -5,12 +5,12 @@ public class Controller {
 
 	private Model model;
 	private View view;
-	
+
 	public Controller(){
 		view = new View();
-		model = new Model(view.getWidth(), view.getHeight()), view.getImageWidth(), view.getImageHeight());
+		model = new Model(view.getWidth(), view.getHeight(), view.getImageWidth(), view.getImageHeight());
 	}
-	
+
         //run the simulation
 	public void start(){
 		for(int i = 0; i < 5000; i++)
