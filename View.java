@@ -24,6 +24,7 @@ public class View extends JPanel {
 	private final int imgWidth = 165;
 	private final int imgHeight = 165;
 	private final int totalNumDir = 8;
+  private final int frameCount = 10;
 	BufferedImage[][] pics;
 	private int xloc;
 	private int yloc;
@@ -36,10 +37,12 @@ public class View extends JPanel {
 	}
 
 	public void paint(Graphics g) {
-		g.drawImage(pics[dir][picNum], xloc, yloc, Color.gray, this);
+    picNum = (picNum + 1) % frameCount;
+		g.drawImage(pics[direction.ordinal()][picNum], xloc, yloc, Color.gray, this);
 	}
 
 	public View() {
+    super();
 		JFrame frame = new JFrame();
 		frame.getContentPane().add(this);
 		frame.setBackground(Color.gray);
@@ -67,7 +70,6 @@ public class View extends JPanel {
 		xloc = modelX;
 		yloc = modelY;
 		direction = modelDir;
-
 	}
 
 	public void loadImages() {
@@ -75,10 +77,10 @@ public class View extends JPanel {
 
     	pics = new BufferedImage[totalNumDir][10];
 
-    	String[] files = {"images/orc/orc_forward_north.png", "images/orc/orc_forward_east.png",
-    			"images/orc/orc_forward_south.png", "images/orc/orc_forward_west.png",
-    			"images/orc/orc_forward_northeast.png","images/orc/orc_forward_northwest.png",
-    			"images/orc/orc_forward_southeast.png","images/orc/orc_forward_southwest.png"};
+    	String[] files = {"images/orc/orc_forward_north.png", "images/orc/orc_forward_northeast.png",
+    			"images/orc/orc_forward_east.png", "images/orc/orc_forward_southeast.png",
+    			"images/orc/orc_forward_south.png","images/orc/orc_forward_southwest.png",
+    			"images/orc/orc_forward_west.png","images/orc/orc_forward_northwest.png"};
 
 		for(int i = 0; i < totalNumDir; i++) {
 			img[i] = createImage(files[i]);
