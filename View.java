@@ -25,6 +25,7 @@ public class View extends JPanel {
 	private final int imgHeight = 165;
 	private final int totalNumDir = 8;
   private final int frameCount = 10;
+  private final int sleepTime = 100;
 	BufferedImage[][] pics;
 	private int xloc;
 	private int yloc;
@@ -61,7 +62,6 @@ public class View extends JPanel {
 			bufferedImage = ImageIO.read(new File(imageStr));
 			return bufferedImage;
 		} catch (IOException e) {
-      System.out.println("it broke\nit broke\nit broke\nit broke\nit broke\nit broke\nit broke\nit broke\nit broke");
 			e.printStackTrace();
 		}
 
@@ -72,6 +72,12 @@ public class View extends JPanel {
 		xloc = modelX;
 		yloc = modelY;
 		direction = modelDir;
+    this.repaint();
+    try {
+        Thread.sleep(sleepTime);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
 	}
 
 	public void loadImages() {
@@ -94,7 +100,7 @@ public class View extends JPanel {
 	    		pics[i][j] = img[i].getSubimage(imgWidth*j, 0, imgWidth, imgHeight);
 			}
 		}
-    }
+  }
 
 	public int getWidth() {
 		return width;
